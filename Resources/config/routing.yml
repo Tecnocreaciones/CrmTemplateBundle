@@ -1,0 +1,21 @@
+#- Import the bundle's routing resource in the app main routing file:
+
+#TecnocreacionesCrmTemplateBundle:
+#        resource: "@TecnocreacionesCrmTemplateBundle/Resources/config/routing.yml"
+#        prefix:   /
+
+tecnocreaciones_crm_template_homepage:
+    path:     /
+    defaults: { _controller: TecnocreacionesCrmTemplateBundle:Template:index }
+
+tecnocreaciones_crm_template_homepage_tmp_1:
+    path:     /tmp-1
+    defaults: { _controller: TecnocreacionesCrmTemplateBundle:Template:index }
+
+tecnocreaciones_crm_template_homepage_tmp_2:
+    path:     /tmp-2
+    defaults: { _controller: TecnocreacionesCrmTemplateBundle:Template:index }
+    
+tecnocreaciones_crm_template_homepage_tmp_3:
+    path:     /tmp-3
+    defaults: { _controller: TecnocreacionesCrmTemplateBundle:Template:index }

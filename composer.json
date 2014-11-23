@@ -1,0 +1,13 @@
+{
+    "name": "tecnocreaciones/crm-template-adminbundle",
+    "description": "Template CRM",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Carlos Mendoza",
+            "email": "inhack20@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {}
+}

@@ -1,0 +1,15 @@
+app:
+    sidebar:
+        dashboard: Dashboard
+        data_boxes: Data Boxes
+        widgets: Widgets
+        customer: Cliente
+        more_pages:
+            more_pages: More Pages
+            error_404: Error 404
+            error_500: Error 500
+            multi_level_menu:
+                multi_level_menu: Multi Level Menu
+                level_3: Level 3
+                level_4: Level 4
+                some_item: Some Item
