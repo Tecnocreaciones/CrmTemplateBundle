@@ -9,5 +9,9 @@
         }
     ],
     "minimum-stability": "dev",
-    "require": {}
+    "require": {},
+    "autoload": {
+        "psr-0": { "Tecnocreaciones\\Crm\\TemplateBundle": "" }
+    },
+    "target-dir": "Tecnocreaciones/Crm/TemplateBundle"
 }
