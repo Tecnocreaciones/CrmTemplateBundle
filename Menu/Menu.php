@@ -33,9 +33,10 @@ class Menu extends MenuBuilder
     const ROUTE_CUSTOMER_CREATE = 'customer_new';
     const ROUTE_ITEM = 'item';
     const ROUTE_ITEM_CREATE = 'item_new';
+    const ROUTE_STUDENT = 'student';
+    const ROUTE_STUDENT_CREATE = 'student_new';
 
-
-    /**
+        /**
      * Builds backend sidebar menu.
      *
      * @param Request $request
@@ -68,8 +69,9 @@ class Menu extends MenuBuilder
         ))->setLabel($this->translate(sprintf('app.%s.widgets', $section)));
         
 //        $this->addExampleMenu($menu, $section);
-        $this->addClientMenu($menu, $section);
-        $this->addProductAndServices($menu, $section);
+//        $this->addClientMenu($menu, $section);
+//        $this->addProductAndServices($menu, $section);
+        $this->student($menu, $section);
         
         return $menu;
     }
@@ -100,6 +102,32 @@ class Menu extends MenuBuilder
         $menu->addChild($child);
     }
     
+    public function student (ItemInterface $menu, $section) {
+        $child = $this->factory->createItem('',
+                    $this->getSubLevelOptions(array(
+                    'uri' => null,
+                    'labelAttributes' => array('icon' => 'glyphicon glyphicon-user'),
+                    ))
+                )
+                ->setLabel($this->translate(sprintf('Estudiante', $section)));
+        $child
+                ->addChild(null, array(
+                    'route' => self::ROUTE_STUDENT,
+                    'labelAttributes' => array('icon' => 'glyphicon glyphicon-th-list'),
+                    'routeParameters' => $this->generateRouteTemporal(),
+                    ))
+                ->setLabel($this->translate(sprintf('Listado', $section)));
+        $child
+                ->addChild('more_pages.error_500', array(
+                    'route' => self::ROUTE_STUDENT_CREATE,
+                    'labelAttributes' => array('icon' => 'glyphicon glyphicon-plus-sign'),
+                    'routeParameters' => $this->generateRouteTemporal(),
+                    ))
+                ->setLabel($this->translate(sprintf('Registrar estudiante', $section)));
+        
+        $menu->addChild($child);
+    }
+
     public function addProductAndServices(ItemInterface $menu, $section) {
         $subchild = $this->factory->createItem('multi_level_menu',
                         $this->getSubLevelOptions(array(
