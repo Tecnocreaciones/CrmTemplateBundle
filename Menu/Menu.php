@@ -33,8 +33,6 @@ class Menu extends MenuBuilder
     const ROUTE_CUSTOMER_CREATE = 'customer_new';
     const ROUTE_ITEM = 'item';
     const ROUTE_ITEM_CREATE = 'item_new';
-    const ROUTE_STUDENT = 'student';
-    const ROUTE_STUDENT_CREATE = 'student_new';
 
         /**
      * Builds backend sidebar menu.
@@ -68,102 +66,12 @@ class Menu extends MenuBuilder
             'labelAttributes' => array('icon' => 'fa fa-th'),
         ))->setLabel($this->translate(sprintf('app.%s.widgets', $section)));
         
-//        $this->addExampleMenu($menu, $section);
-//        $this->addClientMenu($menu, $section);
-//        $this->addProductAndServices($menu, $section);
-        $this->student($menu, $section);
+        $this->addExampleMenu($menu, $section);
         
         return $menu;
     }
     
-    function addClientMenu(ItemInterface $menu, $section) {
-        $child = $this->factory->createItem('more_pages',
-                    $this->getSubLevelOptions(array(
-                    'uri' => null,
-                    'labelAttributes' => array('icon' => 'glyphicon glyphicon-user'),
-                    ))
-                )
-                ->setLabel($this->translate(sprintf('Cliente', $section)));
-        $child
-                ->addChild(null, array(
-                    'route' => self::ROUTE_CUSTOMER,
-                    'labelAttributes' => array('icon' => 'glyphicon glyphicon-th-list'),
-                    'routeParameters' => $this->generateRouteTemporal(),
-                    ))
-                ->setLabel($this->translate(sprintf('ManageClient', $section)));
-        $child
-                ->addChild('more_pages.error_500', array(
-                    'route' => self::ROUTE_CUSTOMER_CREATE,
-                    'labelAttributes' => array('icon' => 'glyphicon glyphicon-plus-sign'),
-                    'routeParameters' => $this->generateRouteTemporal(),
-                    ))
-                ->setLabel($this->translate(sprintf('CreateClient', $section)));
-        
-        $menu->addChild($child);
-    }
     
-    public function student (ItemInterface $menu, $section) {
-        $child = $this->factory->createItem('',
-                    $this->getSubLevelOptions(array(
-                    'uri' => null,
-                    'labelAttributes' => array('icon' => 'glyphicon glyphicon-user'),
-                    ))
-                )
-                ->setLabel($this->translate(sprintf('Estudiante', $section)));
-        $child
-                ->addChild(null, array(
-                    'route' => self::ROUTE_STUDENT,
-                    'labelAttributes' => array('icon' => 'glyphicon glyphicon-th-list'),
-                    'routeParameters' => $this->generateRouteTemporal(),
-                    ))
-                ->setLabel($this->translate(sprintf('Listado', $section)));
-        $child
-                ->addChild('more_pages.error_500', array(
-                    'route' => self::ROUTE_STUDENT_CREATE,
-                    'labelAttributes' => array('icon' => 'glyphicon glyphicon-plus-sign'),
-                    'routeParameters' => $this->generateRouteTemporal(),
-                    ))
-                ->setLabel($this->translate(sprintf('Registrar estudiante', $section)));
-        
-        $menu->addChild($child);
-    }
-
-    public function addProductAndServices(ItemInterface $menu, $section) {
-        $subchild = $this->factory->createItem('multi_level_menu',
-                        $this->getSubLevelOptions(array(
-                        'uri' => null,
-                            'labelAttributes' => array('icon' => 'glyphicon glyphicon-briefcase'),
-                        ))
-                    )
-                    ->setLabel($this->translate(sprintf('ProductsAndServices', $section)));
-
-        $subchildLevel4 = $this->factory->createItem('multi_level_menu.level_4',$this->getSubLevelOptions(array(
-                    'uri' => null,
-                        'labelAttributes' => array('icon' => 'glyphicon glyphicon-shopping-cart'),
-                    )))
-                    ->setLabel($this->translate(sprintf('Productos', $section)));
-            
-        $subchildLevel4->addChild('multi_level_menu.level_4_some_item', array(
-                        'route' => 'item',
-                        'routeParameters' => $this->generateRouteTemporal(),
-                        'labelAttributes' => array('icon' => 'glyphicon glyphicon-th-list'),
-                        ))
-                      ->setLabel('Gestionar');
-                     
-        $subchildLevel4->addChild('multi_level_menu.level_5_some_item', array(
-                        'route' => self::ROUTE_ITEM_CREATE,
-                        'routeParameters' => $this->generateRouteTemporal(),
-                        'labelAttributes' => array('icon' => 'glyphicon glyphicon-plus-sign'),
-                        ))
-                      ->setLabel($this->translate('CreateProduct'));
-                     
-        $subchild->addChild($subchildLevel4);
-        
-        $menu->addChild($subchild);
-        
-    }
-
-
     /**
      * Construye el menu de ejemplo
      * 
