@@ -2,3 +2,15 @@ services:
 #    tecnocreaciones_crm_template.example:
 #        class: Tecnocreaciones\Crm\TemplateBundle\Example
 #        arguments: [@service_id, "plain_value", %parameter%]
+    tecnocreaciones_vzla_government.menu_builder.backend:
+        class: Tecnocreaciones\Crm\TemplateBundle\Menu\Menu
+        arguments: [@knp_menu.factory, @security.context, @translator]
+        
+    app.menu.backend.sidebar:
+        class: Knp\Menu\MenuItem
+        factory_service: tecnocreaciones_vzla_government.menu_builder.backend
+        factory_method: createSidebarMenu
+        scope: "request"
+        arguments: [@request]
+        tags: 
+            - { name: knp_menu.menu, alias: app.menu.backend.sidebar }

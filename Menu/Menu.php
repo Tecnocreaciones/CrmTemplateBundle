@@ -29,12 +29,8 @@ class Menu extends MenuBuilder
     private $secondLevelOptions = array('childrenAttributes' => array('class' => 'submenu'));
     
     const ROUTE_DEFAULT = 'tecnocreaciones_crm_template_homepage';
-    const ROUTE_CUSTOMER = 'customer';
-    const ROUTE_CUSTOMER_CREATE = 'customer_new';
-    const ROUTE_ITEM = 'item';
-    const ROUTE_ITEM_CREATE = 'item_new';
 
-        /**
+    /**
      * Builds backend sidebar menu.
      *
      * @param Request $request
