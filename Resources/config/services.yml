@@ -1,9 +1,11 @@
+parameters:
+    crm.sidebard.menu.class: Tecnocreaciones\Crm\TemplateBundle\Menu\Menu
 services:
 #    tecnocreaciones_crm_template.example:
 #        class: Tecnocreaciones\Crm\TemplateBundle\Example
 #        arguments: [@service_id, "plain_value", %parameter%]
     tecnocreaciones_vzla_government.menu_builder.backend:
-        class: Tecnocreaciones\Crm\TemplateBundle\Menu\Menu
+        class: %crm.sidebard.menu.class%
         arguments: [@knp_menu.factory, @security.context, @translator]
         
     app.menu.backend.sidebar:

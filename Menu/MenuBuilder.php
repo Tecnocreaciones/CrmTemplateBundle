@@ -87,4 +87,16 @@ abstract class MenuBuilder
     {
         return $this->translator->trans(/** @Ignore */ $label, $parameters, 'menu');
     }    
+    
+    /**
+     * Evaluar permisos por rol
+     * 
+     * @param type $attributes
+     * @param type $object
+     * @return type
+     */
+    protected function isGranted($attributes,$object = null)
+    {
+        return $this->securityContext->isGranted($attributes, $object);
+    }
 }
