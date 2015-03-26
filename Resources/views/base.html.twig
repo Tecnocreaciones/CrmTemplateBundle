@@ -79,9 +79,8 @@ Purchase: http://wrapbootstrap.com
             },
         };
         $(document).ready(function(){
-{#            flashManager.debug();#}
             {% for type, messages in app.session.flashbag.all() %}
-                flashManager.debug("Tipo - {{ type }}");
+                {#flashManager.debug("Tipo - {{ type }}");#}
                 {% for message in messages %}
                     
                     {% if type == "success" %}
