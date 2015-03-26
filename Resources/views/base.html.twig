@@ -54,20 +54,48 @@ Purchase: http://wrapbootstrap.com
     <!--Beyond Scripts-->
     <script src="{{ asset('bundles/tecnocreacionescrmtemplate/template/html/assets/js/beyond.min.js') }}"></script>
     <!--Page Related Scripts-->
+    <script src="{{ asset('bundles/tecnocreacionescrmtemplate/template/html/assets/js/toastr/toastr.js') }}"></script>
     {% block javascripts '' %}
-    
+        
     <!--Google Analytics::Demo Only-->
-    <script>
-        {#(function (i, s, o, g, r, a, m) {
-            i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
-                (i[r].q = i[r].q || []).push(arguments)
-            }, i[r].l = 1 * new Date(); a = s.createElement(o),
-            m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
-        })(window, document, 'script', 'http://www.google-analytics.com/analytics.js', 'ga');
-
-        ga('create', 'UA-52103994-1', 'beyondadmin.s3-website-us-west-2.amazonaws.com');
-        ga('send', 'pageview');
-#}
+    <script type="text/javascript">
+        var flashManager = {
+            time: "9000",
+            danger: function(message,parameters){
+                
+                Notify(message, 'top-right', this.time, 'danger', 'fa-bolt', true);
+            },
+            success: function(message,parameters){
+                Notify(message, 'top-right', this.time, 'success', 'fa-check', true);
+            },
+            warning: function(message,parameters){
+                Notify(message, 'top-right', this.time, 'warning', 'fa-warning', true);
+            },
+            info: function(message,parameters){
+                Notify(message, 'top-right', this.time, 'info', 'fa-envelope', true);
+            },
+            debug: function(message,parameters){
+                Notify("Debug: "+message, 'top-right', this.time, 'maroon', 'fa-home', true)
+            },
+        };
+        $(document).ready(function(){
+{#            flashManager.debug();#}
+            {% for type, messages in app.session.flashbag.all() %}
+                flashManager.debug("Tipo - {{ type }}");
+                {% for message in messages %}
+                    
+                    {% if type == "success" %}
+                        flashManager.success("{{ message }}");
+                    {% elseif type == "error" %}
+                        flashManager.danger("{{ message }}");
+                    {% elseif type == "warning" %}
+                        flashManager.warning("{{ message }}");
+                    {% elseif type == "info" %}
+                        flashManager.info("{{ message }}");
+                    {% endif%}
+                {% endfor %}
+            {% endfor %}
+        });
     </script>
     {% block javascript '' %}
 </body>
