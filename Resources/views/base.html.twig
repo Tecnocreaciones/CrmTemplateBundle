@@ -57,21 +57,25 @@
         var flashManager = {
             time: "9000",
             danger: function(message,parameters){
-                
-                Notify(message, 'top-right', this.time, 'danger', 'fa-bolt', true);
+                this.show(message,'danger', 'fa-bolt');
             },
             success: function(message,parameters){
-                Notify(message, 'top-right', this.time, 'success', 'fa-check', true);
+                this.show(message,'success', 'fa-check');
             },
             warning: function(message,parameters){
-                Notify(message, 'top-right', this.time, 'warning', 'fa-warning', true);
+                this.show(message,'warning', 'fa-warning');
             },
             info: function(message,parameters){
-                Notify(message, 'top-right', this.time, 'info', 'fa-envelope', true);
+                this.show(message,'info', 'fa-envelope');
             },
             debug: function(message,parameters){
-                Notify("Debug: "+message, 'top-right', this.time, 'maroon', 'fa-home', true)
+{#                this.show("Debug: "+message,'maroon', 'fa-home');#}
             },
+            show: function(message,type,icon){
+                if(message != ""){
+                    Notify(message, 'top-right', this.time, type, icon, true);
+                }
+            }
         };
         $(document).ready(function(){
             {% for type, messages in app.session.flashbag.all() %}
