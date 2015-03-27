@@ -6,30 +6,46 @@
 <!-- Head -->
 <head>
     <meta charset="utf-8" />
-    <title>{% block pageTitle %}Home - App{% endblock %}</title>
+    <title>{% block title "" %}{% block pageTitle %}Home - App{% endblock %}</title>
 
     <meta name="description" content="blank page" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <link rel="shortcut icon" href="{{ asset('bundles/tecnocreacionescrmtemplate/template/html/assets/img/favicon.png') }}" type="image/x-icon">
 
-    <!--Basic Styles-->
+    {#<!--Basic Styles-->#}
     <link href="{{ asset('bundles/tecnocreacionescrmtemplate/template/html/assets/css/bootstrap.min.css') }}" rel="stylesheet" />
     <link id="bootstrap-rtl-link" href="" rel="stylesheet" />
     <link href="{{ asset('bundles/tecnocreacionescrmtemplate/template/html/assets/css/font-awesome.min.css') }}" rel="stylesheet" />
     {% block stylesheet_base  '' %}
     
-    <!--Fonts-->
+    {#<!--Fonts-->#}
     <link href="http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,400,600,700,300" rel="stylesheet" type="text/css">
 
-    <!--Beyond styles-->
-    <link id="beyond-link" href="{{ asset('bundles/tecnocreacionescrmtemplate/template/html/assets/css/beyond.min.css') }}" rel="stylesheet" />
-    <link href="{{ asset('bundles/tecnocreacionescrmtemplate/template/html/assets/css/typicons.min.css') }}" rel="stylesheet" />
-    <link href="{{ asset('bundles/tecnocreacionescrmtemplate/template/html/assets/css/animate.min.css') }}" rel="stylesheet" />
-    <link id="skin-link" href="" rel="stylesheet" type="text/css" />
-    <link href="{{ asset('bundles/tecnocreacionescrmtemplate/template/html/assets/css/skins/darkblue.min.css') }}" rel="stylesheet" />
+    {#<!--Beyond styles-->#}
+    {#
+        <link id="beyond-link" href="{{ asset('bundles/tecnocreacionescrmtemplate/template/html/assets/css/beyond.min.css') }}" rel="stylesheet" />
+        <link href="{{ asset('bundles/tecnocreacionescrmtemplate/template/html/assets/css/typicons.min.css') }}" rel="stylesheet" />
+        <link href="{{ asset('bundles/tecnocreacionescrmtemplate/template/html/assets/css/animate.min.css') }}" rel="stylesheet" />
+        <link id="skin-link" href="" rel="stylesheet" type="text/css" />
+        <link href="{{ asset('bundles/tecnocreacionescrmtemplate/template/html/assets/css/skins/darkblue.min.css') }}" rel="stylesheet" />
+    #}
+    {% block core_stylesheets %}
+        {% stylesheets 
+            '@TecnocreacionesCrmTemplateBundle/Resources/public/template/html/assets/css/beyond.min.css' 
+            '@TecnocreacionesCrmTemplateBundle/Resources/public/template/html/assets/css/typicons.min.css' 
+            '@TecnocreacionesCrmTemplateBundle/Resources/public/template/html/assets/css/animate.min.css' 
+            '@TecnocreacionesCrmTemplateBundle/Resources/public/template/html/assets/css/skins/darkblue.min.css' 
+
+            filter='uglifycss' 
+            filter='cssrewrite' 
+            output="assets/template_base.min.css"
+        %}
+             <link rel="stylesheet" href="{{ asset_url }}" />
+        {% endstylesheets %}
+    {% endblock core_stylesheets %}
     
-    <!--Skin Script: Place this script in head to load scripts for skins and rtl support-->
+    {#<!--Skin Script: Place this script in head to load scripts for skins and rtl support-->#}
     <script>
         var basePath = '{{ asset('bundles/tecnocreacionescrmtemplate/template/html/') }}';
     </script>
@@ -43,14 +59,30 @@
     {% block body %}
     
     {% endblock body %}
-    <!--Basic Scripts-->
-    <script src="{{ asset('bundles/tecnocreacionescrmtemplate/template/html/assets/js/jquery-2.0.3.min.js') }}"></script>
-    <script src="{{ asset('bundles/tecnocreacionescrmtemplate/template/html/assets/js/bootstrap.min.js') }}"></script>
+    {#
+        <!--Basic Scripts-->
+        <script src="{{ asset('bundles/tecnocreacionescrmtemplate/template/html/assets/js/jquery-2.0.3.min.js') }}"></script>
+        <script src="{{ asset('bundles/tecnocreacionescrmtemplate/template/html/assets/js/bootstrap.min.js') }}"></script>
 
-    <!--Beyond Scripts-->
-    <script src="{{ asset('bundles/tecnocreacionescrmtemplate/template/html/assets/js/beyond.min.js') }}"></script>
-    <!--Page Related Scripts-->
-    <script src="{{ asset('bundles/tecnocreacionescrmtemplate/template/html/assets/js/toastr/toastr.js') }}"></script>
+        <!--Beyond Scripts-->
+        <script src="{{ asset('bundles/tecnocreacionescrmtemplate/template/html/assets/js/beyond.min.js') }}"></script>
+        <!--Page Related Scripts-->
+        <script src="{{ asset('bundles/tecnocreacionescrmtemplate/template/html/assets/js/toastr/toastr.js') }}"></script>
+    #}
+    {% block core_javascripts %}
+        {% javascripts 
+            '@TecnocreacionesCrmTemplateBundle/Resources/public/template/html/assets/js/jquery-2.0.3.min.js' 
+            '@TecnocreacionesCrmTemplateBundle/Resources/public/template/html/assets/js/bootstrap.min.js' 
+            '@TecnocreacionesCrmTemplateBundle/Resources/public/template/html/assets/js/beyond.min.js' 
+            '@TecnocreacionesCrmTemplateBundle/Resources/public/template/html/assets/js/toastr/toastr.js' 
+
+            filter='uglifyjs2' 
+            output="assets/template_base.min.js"
+        %}
+            <script src="{{ asset_url }}"></script>
+        {% endjavascripts %}
+    {% endblock core_javascripts %}
+    
     {% block javascripts '' %}
         
     <script type="text/javascript">
