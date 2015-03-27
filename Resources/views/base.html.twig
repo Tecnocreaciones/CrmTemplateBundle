@@ -1,9 +1,4 @@
 ﻿<!DOCTYPE html>
-<!--
-BeyondAdmin - Responsive Admin Dashboard Template build with Twitter Bootstrap 3.2.0
-Version: 1.0.0
-Purchase: http://wrapbootstrap.com
--->
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 
@@ -39,6 +34,7 @@ Purchase: http://wrapbootstrap.com
         var basePath = '{{ asset('bundles/tecnocreacionescrmtemplate/template/html/') }}';
     </script>
     <script src="{{ asset('bundles/tecnocreacionescrmtemplate/template/html/assets/js/skins.min.js') }}"></script>
+    {% block stylesheet_bottom_core  '' %}
     {% block stylesheet_bottom  '' %}
 </head>
 <!-- /Head -->
@@ -57,7 +53,6 @@ Purchase: http://wrapbootstrap.com
     <script src="{{ asset('bundles/tecnocreacionescrmtemplate/template/html/assets/js/toastr/toastr.js') }}"></script>
     {% block javascripts '' %}
         
-    <!--Google Analytics::Demo Only-->
     <script type="text/javascript">
         var flashManager = {
             time: "9000",
@@ -80,7 +75,7 @@ Purchase: http://wrapbootstrap.com
         };
         $(document).ready(function(){
             {% for type, messages in app.session.flashbag.all() %}
-                {#flashManager.debug("Tipo - {{ type }}");#}
+                flashManager.debug("Tipo - {{ type }}");
                 {% for message in messages %}
                     
                     {% if type == "success" %}
