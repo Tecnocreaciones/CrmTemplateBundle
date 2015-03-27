@@ -90,6 +90,8 @@
                         flashManager.warning("{{ message }}");
                     {% elseif type == "info" %}
                         flashManager.info("{{ message }}");
+                    {% elseif type == "debug" %}
+                        flashManager.debug("{{ message }}");
                     {% endif%}
                 {% endfor %}
             {% endfor %}
