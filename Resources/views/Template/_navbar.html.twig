@@ -5,7 +5,9 @@
             <div class="navbar-header pull-left">
                 <a href="#" class="navbar-brand">
                     <small>
-                        <img src="{{ asset('bundles/tecnocreacionescrmtemplate/template/html/assets/img/logo.png') }}" alt="" />
+                        {% block logo %}
+                            <img src="{{ asset('bundles/tecnocreacionescrmtemplate/template/html/assets/img/logo.png') }}" alt="" />
+                        {% endblock %}
                     </small>
                 </a>
             </div>

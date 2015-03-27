@@ -29,7 +29,9 @@
     </div>
     <!--  /Loading Container -->
     <!-- Navbar -->
-    {% include 'TecnocreacionesCrmTemplateBundle:Template:_navbar.html.twig' %}
+    {% block navbar %}
+        {% include 'TecnocreacionesCrmTemplateBundle:Template:_navbar.html.twig' %}
+    {% endblock navbar %}
     <!-- /Navbar -->
     <!-- Main Container -->
     <div class="main-container container-fluid">
