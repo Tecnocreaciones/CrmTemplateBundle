@@ -248,28 +248,28 @@
                         </li>
                         <li>
                             <a class="login-area dropdown-toggle" data-toggle="dropdown">
-                                <div class="avatar" title="View your public profile">
+                                <div class="avatar" title="{{ "label.view_your_public_profile" | trans({},"labels") }}">
                                     <img src="{{ asset('bundles/tecnocreacionescrmtemplate/template/html/assets/img/avatars/adam-jansen.jpg') }}">
                                 </div>
                                 <section>
-                                    <h2><span class="profile"><span>David Stevenson</span></span></h2>
+                                    <h2><span class="profile"><span>{% block navbar_name %}David Stevenson{% endblock %}</span></span></h2>
                                 </section>
                             </a>
                             <!--Login Area Dropdown-->
                             <ul class="pull-right dropdown-menu dropdown-arrow dropdown-login-area">
-                                <li class="username"><a>David Stevenson</a></li>
-                                <li class="email"><a>David.Stevenson@live.com</a></li>
+                                <li class="username"><a>{% block navbar_username %}David Stevenson{% endblock %}</a></li>
+                                <li class="email"><a>{% block navbar_email %}David.Stevenson@live.com{% endblock %}</a></li>
                                 <!--Avatar Area-->
                                 <li>
                                     <div class="avatar-area">
                                         <img src="{{ asset('bundles/tecnocreacionescrmtemplate/template/html/assets/img/avatars/adam-jansen.jpg') }}" class="avatar">
-                                        <span class="caption">Change Photo</span>
+                                        <span class="caption">{{ "label.change_photo"|trans({},"labels") }}</span>
                                     </div>
                                 </li>
                                 <!--Avatar Area-->
                                 <li class="edit">
-                                    <a href="profile.html" class="pull-left">Profile</a>
-                                    <a href="#" class="pull-right">Setting</a>
+                                    <a href="{{ path("fos_user_profile_show") }}" class="pull-left">{{ "label.profile"|trans({},"labels") }}</a>
+                                    <a href="#" class="pull-right">{{ "label.setting"|trans({},"labels") }}</a>
                                 </li>
                                 <!--Theme Selector Area-->
                                 <li class="theme-area">
@@ -291,7 +291,7 @@
                                 <!--/Theme Selector Area-->
                                 <li class="dropdown-footer">
                                     <a href="{{ path('fos_user_security_logout') }}">
-                                        Sign out
+                                        {{ "label.sign_out"|trans({},"labels") }}
                                     </a>
                                 </li>
                             </ul>
@@ -302,7 +302,7 @@
                         no space must be between these elements-->
                         <!-- Settings -->
                     </ul><div class="setting">
-                        <a id="btn-setting" title="Setting" href="#">
+                        <a id="btn-setting" title="{{ "label.setting"|trans({},"label") }}" href="#">
                             <i class="icon glyphicon glyphicon-cog"></i>
                         </a>
                     </div><div class="setting-container">

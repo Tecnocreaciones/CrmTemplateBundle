@@ -101,12 +101,18 @@
                 this.show(message,'info', 'fa-envelope');
             },
             debug: function(message,parameters){
-{#                this.show("Debug: "+message,'maroon', 'fa-home');#}
+                {% if app.debug %}
+                    console.log(message);
+                    this.show("Debug: "+message,'maroon', 'fa-home');
+                {% endif %}
             },
             show: function(message,type,icon){
                 if(message != ""){
                     Notify(message, 'top-right', this.time, type, icon, true);
                 }
+                {% if app.debug %}
+                    console.log("debug show: "+message+" type: "+type);
+                {% endif %}
             }
         };
         $(document).ready(function(){
