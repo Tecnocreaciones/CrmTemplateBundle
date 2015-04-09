@@ -279,24 +279,26 @@
                                     <a href="{{ path("fos_user_profile_show") }}" class="pull-left">{{ "label.profile"|trans({},"labels") }}</a>
                                     <a href="#" class="pull-right">{{ "label.setting"|trans({},"labels") }}</a>
                                 </li>
-                                <!--Theme Selector Area-->
-                                <li class="theme-area">
-                                    <ul class="colorpicker" id="skin-changer">
-                                        <li><a class="colorpick-btn" href="#" style="background-color:#5DB2FF;" rel="{{ asset('bundles/tecnocreacionescrmtemplate/template/html/assets/css/skins/blue.min.css') }}"></a></li>
-                                        <li><a class="colorpick-btn" href="#" style="background-color:#2dc3e8;" rel="{{ asset('bundles/tecnocreacionescrmtemplate/template/html/assets/css/skins/azure.min.css') }}"></a></li>
-                                        <li><a class="colorpick-btn" href="#" style="background-color:#03B3B2;" rel="{{ asset('bundles/tecnocreacionescrmtemplate/template/html/assets/css/skins/teal.min.css') }}"></a></li>
-                                        <li><a class="colorpick-btn" href="#" style="background-color:#53a93f;" rel="{{ asset('bundles/tecnocreacionescrmtemplate/template/html/assets/css/skins/green.min.css') }}"></a></li>
-                                        <li><a class="colorpick-btn" href="#" style="background-color:#FF8F32;" rel="{{ asset('bundles/tecnocreacionescrmtemplate/template/html/assets/css/skins/orange.min.css') }}"></a></li>
-                                        <li><a class="colorpick-btn" href="#" style="background-color:#cc324b;" rel="{{ asset('bundles/tecnocreacionescrmtemplate/template/html/assets/css/skins/pink.min.css') }}"></a></li>
-                                        <li><a class="colorpick-btn" href="#" style="background-color:#AC193D;" rel="{{ asset('bundles/tecnocreacionescrmtemplate/template/html/assets/css/skins/darkred.min.css') }}"></a></li>
-                                        <li><a class="colorpick-btn" href="#" style="background-color:#8C0095;" rel="{{ asset('bundles/tecnocreacionescrmtemplate/template/html/assets/css/skins/purple.min.css') }}"></a></li>
-                                        <li><a class="colorpick-btn" href="#" style="background-color:#0072C6;" rel="{{ asset('bundles/tecnocreacionescrmtemplate/template/html/assets/css/skins/darkblue.min.css') }}"></a></li>
-                                        <li><a class="colorpick-btn" href="#" style="background-color:#585858;" rel="{{ asset('bundles/tecnocreacionescrmtemplate/template/html/assets/css/skins/gray.min.css') }}"></a></li>
-                                        <li><a class="colorpick-btn" href="#" style="background-color:#474544;" rel="{{ asset('bundles/tecnocreacionescrmtemplate/template/html/assets/css/skins/black.min.css') }}"></a></li>
-                                        <li><a class="colorpick-btn" href="#" style="background-color:#001940;" rel="{{ asset('bundles/tecnocreacionescrmtemplate/template/html/assets/css/skins/deepblue.min.css') }}"></a></li>
-                                    </ul>
-                                </li>
-                                <!--/Theme Selector Area-->
+                                {% block theme_area %}
+                                    <!--Theme Selector Area-->
+                                    <li class="theme-area">
+                                        <ul class="colorpicker" id="skin-changer">
+                                            <li><a class="colorpick-btn" href="#" style="background-color:#5DB2FF;" rel="{{ asset('bundles/tecnocreacionescrmtemplate/template/html/assets/css/skins/blue.min.css') }}"></a></li>
+                                            <li><a class="colorpick-btn" href="#" style="background-color:#2dc3e8;" rel="{{ asset('bundles/tecnocreacionescrmtemplate/template/html/assets/css/skins/azure.min.css') }}"></a></li>
+                                            <li><a class="colorpick-btn" href="#" style="background-color:#03B3B2;" rel="{{ asset('bundles/tecnocreacionescrmtemplate/template/html/assets/css/skins/teal.min.css') }}"></a></li>
+                                            <li><a class="colorpick-btn" href="#" style="background-color:#53a93f;" rel="{{ asset('bundles/tecnocreacionescrmtemplate/template/html/assets/css/skins/green.min.css') }}"></a></li>
+                                            <li><a class="colorpick-btn" href="#" style="background-color:#FF8F32;" rel="{{ asset('bundles/tecnocreacionescrmtemplate/template/html/assets/css/skins/orange.min.css') }}"></a></li>
+                                            <li><a class="colorpick-btn" href="#" style="background-color:#cc324b;" rel="{{ asset('bundles/tecnocreacionescrmtemplate/template/html/assets/css/skins/pink.min.css') }}"></a></li>
+                                            <li><a class="colorpick-btn" href="#" style="background-color:#AC193D;" rel="{{ asset('bundles/tecnocreacionescrmtemplate/template/html/assets/css/skins/darkred.min.css') }}"></a></li>
+                                            <li><a class="colorpick-btn" href="#" style="background-color:#8C0095;" rel="{{ asset('bundles/tecnocreacionescrmtemplate/template/html/assets/css/skins/purple.min.css') }}"></a></li>
+                                            <li><a class="colorpick-btn" href="#" style="background-color:#0072C6;" rel="{{ asset('bundles/tecnocreacionescrmtemplate/template/html/assets/css/skins/darkblue.min.css') }}"></a></li>
+                                            <li><a class="colorpick-btn" href="#" style="background-color:#585858;" rel="{{ asset('bundles/tecnocreacionescrmtemplate/template/html/assets/css/skins/gray.min.css') }}"></a></li>
+                                            <li><a class="colorpick-btn" href="#" style="background-color:#474544;" rel="{{ asset('bundles/tecnocreacionescrmtemplate/template/html/assets/css/skins/black.min.css') }}"></a></li>
+                                            <li><a class="colorpick-btn" href="#" style="background-color:#001940;" rel="{{ asset('bundles/tecnocreacionescrmtemplate/template/html/assets/css/skins/deepblue.min.css') }}"></a></li>
+                                        </ul>
+                                    </li>
+                                    <!--/Theme Selector Area-->
+                                {% endblock theme_area %}
                                 <li class="dropdown-footer">
                                     <a href="{{ path('fos_user_security_logout') }}">
                                         {{ "label.sign_out"|trans({},"labels") }}
