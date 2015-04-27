@@ -31,6 +31,7 @@
             <div class="navbar-header pull-right">
                 <div class="navbar-account">
                     <ul class="account-area">
+                        {% block notification_alerts %}
                         <li>
                             <a class=" dropdown-toggle" data-toggle="dropdown" title="Help" href="#">
                                 <i class="icon fa fa-warning"></i>
@@ -113,6 +114,8 @@
                             </ul>
                             <!--/Notification Dropdown-->
                         </li>
+                        {% endblock notification_alerts %}
+                        {% block notification_messages %}
                         <li>
                             <a class="wave in dropdown-toggle" data-toggle="dropdown" title="Help" href="#">
                                 <i class="icon fa fa-envelope"></i>
@@ -180,7 +183,8 @@
                             </ul>
                             <!--/Messages Dropdown-->
                         </li>
-
+                        {% endblock notification_messages %}
+                        {% block notification_tasks %}
                         <li>
                             <a class="dropdown-toggle" data-toggle="dropdown" title="Tasks" href="#">
                                 <i class="icon fa fa-tasks"></i>
@@ -254,6 +258,7 @@
                             </ul>
                             <!--/Tasks Dropdown-->
                         </li>
+                        {% endblock notification_tasks %}
                         <li>
                             <a class="login-area dropdown-toggle" data-toggle="dropdown">
                                 <div class="avatar" title="{{ "label.view_your_public_profile" | trans({},"labels") }}">
