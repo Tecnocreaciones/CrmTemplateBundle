@@ -53,33 +53,35 @@
             <!-- /Page Sidebar -->
             <!-- Page Content -->
             <div class="page-content">
-                <!-- Page Breadcrumb -->
-                <div class="page-breadcrumbs">
-                    {% block breadcrumb %}
-                        <ul class="breadcrumb">
-                            <li>
-                                <i class="fa fa-home"></i>
-                                <a href="#">Home</a>
-                            </li>
-                            <li>
-                                <a href="#">More Pages</a>
-                            </li>
-                            <li class="active">Blank Page</li>
-                        </ul>
-                    {% endblock breadcrumb %}
-                </div>
+                {% block page_breadcrumb %}
+                    <!-- Page Breadcrumb -->
+                    <div class="page-breadcrumbs">
+                        {% block breadcrumb %}
+                            <ul class="breadcrumb">
+                                <li>
+                                    <i class="fa fa-home"></i>
+                                    <a href="#">Home</a>
+                                </li>
+                                <li>
+                                    <a href="#">More Pages</a>
+                                </li>
+                                <li class="active">Blank Page</li>
+                            </ul>
+                        {% endblock breadcrumb %}
+                    </div>
+                {% endblock page_breadcrumb %}
                 <!-- /Page Breadcrumb -->
                 <!-- Page Header -->
                 <div class="page-header position-relative">
                     <div class="header-title">
                         <h1>
-                            {% block headerTitle %}
+                            {% block header_title %}
                                 Blank Page
                                 <small>
                                     <i class="fa fa-angle-right"></i>
                                     Hello!
                                 </small>
-                            {% endblock headerTitle %}
+                            {% endblock header_title %}
                         </h1>
                     </div>
                     <!--Header Buttons-->
