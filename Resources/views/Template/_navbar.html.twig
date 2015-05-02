@@ -264,7 +264,7 @@
                         <li>
                             <a class="login-area dropdown-toggle" data-toggle="dropdown">
                                 <div class="avatar" title="{{ "label.view_your_public_profile" | trans({},"labels") }}">
-                                    <img src="{{ asset('bundles/tecnocreacionescrmtemplate/template/html/assets/img/avatars/adam-jansen.jpg') }}">
+                                    {% block navbar_img %}<img src="{{ asset('bundles/tecnocreacionescrmtemplate/template/html/assets/img/avatars/adam-jansen.jpg') }}">{% endblock navbar_img %}
                                 </div>
                                 <section>
                                     <h2><span class="profile"><span>{% block navbar_name %}David Stevenson{% endblock %}</span></span></h2>
