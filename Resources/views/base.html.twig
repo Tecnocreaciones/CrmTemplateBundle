@@ -135,8 +135,8 @@
             {% endfor %}
         });
     </script>
+    {% block javascript '' %}
     {% if app.debug == false %}
-        {% block javascript '' %}
         {% block analytics '' %}
     {% endif%}
 </body>
