@@ -2925,12 +2925,13 @@ TableTools.classes_themeroller = {
 	}
 };
 
+var sSwfPath = basePath+"assets/swf/copy_csv_xls_pdf.swf";
 
 /**
  * @namespace TableTools default settings for initialisation
  */
 TableTools.DEFAULTS = {
-	"sSwfPath":        "../swf/copy_csv_xls_pdf.swf",
+	"sSwfPath":        sSwfPath,
 	"sRowSelect":      "none",
 	"sSelectedClass":  null,
 	"fnPreRowSelect":  null,
