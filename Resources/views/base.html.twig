@@ -1,3 +1,4 @@
+{% set flashes = app.session.flashbag.all() %}
 {% spaceless %}
 ﻿<!DOCTYPE html>
 
@@ -87,9 +88,9 @@
         
     <script type="text/javascript">
         var flashManager = {
-            time: "9000",
+            time: "20000",
             danger: function(message,parameters){
-                this.show(message,'danger', 'fa-bolt');
+                this.show(message,'danger', 'fa-times');
             },
             success: function(message,parameters){
                 this.show(message,'success', 'fa-check');
@@ -98,7 +99,7 @@
                 this.show(message,'warning', 'fa-warning');
             },
             info: function(message,parameters){
-                this.show(message,'info', 'fa-envelope');
+                this.show(message,'info', 'fa-info');
             },
             debug: function(message,parameters){
                 {% if app.debug %}
@@ -116,8 +117,8 @@
             }
         };
         $(document).ready(function(){
-            {% for type, messages in app.session.flashbag.all() %}
-                flashManager.debug("Tipo - {{ type }}");
+            {% for type, messages in flashes %}
+{#                flashManager.debug("Tipo - {{ type }}");#}
                 {% for message in messages %}
                     
                     {% if type == "success" %}
