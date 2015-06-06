@@ -42,10 +42,10 @@
     {% endblock base_javascripts %}
     {% block core_stylesheets %}
         {% stylesheets 
-            '@TecnocreacionesCrmTemplateBundle/Resources/public/template/html/assets/css/beyond.min.css' 
-            '@TecnocreacionesCrmTemplateBundle/Resources/public/template/html/assets/css/typicons.min.css' 
-            '@TecnocreacionesCrmTemplateBundle/Resources/public/template/html/assets/css/animate.min.css' 
-            '@TecnocreacionesCrmTemplateBundle/Resources/public/template/html/assets/css/skins/darkblue.min.css' 
+            'bundles/tecnocreacionescrmtemplate/template/html/assets/css/beyond.min.css' 
+            'bundles/tecnocreacionescrmtemplate/template/html/assets/css/typicons.min.css' 
+            'bundles/tecnocreacionescrmtemplate/template/html/assets/css/animate.min.css' 
+            'bundles/tecnocreacionescrmtemplate/template/html/assets/css/skins/darkblue.min.css' 
 
             filter='uglifycss' 
             filter='cssrewrite' 
@@ -69,9 +69,9 @@
     {% block body '' %}
     {% block core_javascripts %}
         {% javascripts 
-            '@TecnocreacionesCrmTemplateBundle/Resources/public/template/html/assets/js/bootstrap.min.js' 
-            '@TecnocreacionesCrmTemplateBundle/Resources/public/template/html/assets/js/beyond.min.js' 
-            '@TecnocreacionesCrmTemplateBundle/Resources/public/template/html/assets/js/toastr/toastr.js' 
+            'bundles/tecnocreacionescrmtemplate/template/html/assets/js/bootstrap.min.js' 
+            'bundles/tecnocreacionescrmtemplate/template/html/assets/js/beyond.min.js' 
+            'bundles/tecnocreacionescrmtemplate/template/html/assets/js/toastr/toastr.js' 
 
             filter='uglifyjs2' 
             output="assets/template_base.min.js"
