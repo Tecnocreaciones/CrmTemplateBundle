@@ -65,8 +65,9 @@
 </head>
 <!-- /Head -->
 <!-- Body -->
-<body>
+<body {% block body_tag '' %} >
     {% block body '' %}
+    {% block body_post '' %}
     {% block core_javascripts %}
         {% javascripts 
             'bundles/tecnocreacionescrmtemplate/template/html/assets/js/bootstrap.min.js' 
