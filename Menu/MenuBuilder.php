@@ -70,9 +70,9 @@ abstract class MenuBuilder
      *
      * @param Request $request
      */
-    public function setRequest(Request $request = null)
+    public function setRequest(\Symfony\Component\HttpFoundation\RequestStack $request = null)
     {
-        $this->request = $request;
+        $this->request = $request->getCurrentRequest();
     }
 
     /**

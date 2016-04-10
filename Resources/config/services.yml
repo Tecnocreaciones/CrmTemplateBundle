@@ -4,15 +4,17 @@ services:
 #    tecnocreaciones_crm_template.example:
 #        class: Tecnocreaciones\Crm\TemplateBundle\Example
 #        arguments: [@service_id, "plain_value", %parameter%]
+    kpn_menu.factory.original:
+        class: %knp_menu.factory.class%
+        calls:
+            - [ addExtension, ["@knp_menu.factory_extension.routing"]  ]
     tecnocreaciones_vzla_government.menu_builder.backend:
         class: %crm.sidebard.menu.class%
-        arguments: [@knp_menu.factory, @security.context, @translator]
+        arguments: [@kpn_menu.factory.original, @security.context, @translator]
         
     app.menu.backend.sidebar:
         class: Knp\Menu\MenuItem
-        factory_service: tecnocreaciones_vzla_government.menu_builder.backend
-        factory_method: createSidebarMenu
-        scope: "request"
-        arguments: [@request]
+        factory: ["@tecnocreaciones_vzla_government.menu_builder.backend", createSidebarMenu]
+        arguments: ["@request_stack"]
         tags: 
             - { name: knp_menu.menu, alias: app.menu.backend.sidebar }
