@@ -34,6 +34,7 @@
         var basePath = '{{ asset('bundles/tecnocreacionescrmtemplate/template/html/') }}';
         appGlobal = {
             basePath: basePath,
+            baseUrl: "{{ app.request.getBaseURL() }}",
             locale: "{{ app.request.locale }}",
             select2: {
                 language: 'select2/i18n/{{ app.request.locale }}'
