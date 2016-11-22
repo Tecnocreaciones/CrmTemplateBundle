@@ -142,15 +142,17 @@
                             {% endfor %}
                         {% endfor %}
                     {% endblock pageAlerts %}
-                    {% block pageBody 'replace "pageBody" block' %}
-                    <!-- Your Content Goes Here -->
+                    <div class="animated fadeIn">
+                        {% block pageBody 'replace "pageBody" block' %}
+                    </div>
+{#                    <!-- Your Content Goes Here -->#}
                 </div>
-                <!-- /Page Body -->
+{#                <!-- /Page Body -->#}
             </div>
-            <!-- /Page Content -->
+{#            <!-- /Page Content -->#}
         </div>
-        <!-- /Page Container -->
-        <!-- Main Container -->
+{#        <!-- /Page Container -->#}
+{#        <!-- Main Container -->#}
 
     </div>
 {% endblock body %}
