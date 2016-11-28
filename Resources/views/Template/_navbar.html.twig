@@ -262,19 +262,20 @@
                             <!--/Tasks Dropdown-->
                         </li>
                         {% endblock notification_tasks %}
+                        {% block top_menu_area %}
                         <li>
                             <a class="login-area dropdown-toggle" data-toggle="dropdown">
                                 <div class="avatar" title="{{ "label.view_your_public_profile" | trans({},"labels") }}">
                                     {% block navbar_img %}<img src="{{ asset('bundles/tecnocreacionescrmtemplate/template/html/assets/img/avatars/adam-jansen.jpg') }}">{% endblock navbar_img %}
                                 </div>
                                 <section>
-                                    <h2><span class="profile"><span>{% block navbar_name %}David Stevenson{% endblock %}</span></span></h2>
+                                    <h2><span class="profile"><span>David Stevenson</span></span></h2>
                                 </section>
                             </a>
                             <!--Login Area Dropdown-->
                             <ul class="pull-right dropdown-menu dropdown-arrow dropdown-login-area">
-                                <li class="username"><a>{% block navbar_username %}David Stevenson{% endblock %}</a></li>
-                                <li class="email"><a>{% block navbar_email %}David.Stevenson@live.com{% endblock %}</a></li>
+                                <li class="username"><a>David Stevenson</a></li>
+                                <li class="email"><a>David.Stevenson@live.com</a></li>
                                 <!--Avatar Area-->
                                 <li>
                                     <div class="avatar-area">
@@ -287,8 +288,7 @@
                                     <a href="{{ path("fos_user_profile_show") }}" class="pull-left">{{ "label.profile"|trans({},"labels") }}</a>
                                     <a href="#" class="pull-right">{{ "label.setting"|trans({},"labels") }}</a>
                                 </li>
-                                {% block theme_area %}
-                                    <!--Theme Selector Area-->
+{#                                    <!--Theme Selector Area-->#}
                                     <li class="theme-area">
                                         <ul class="colorpicker" id="skin-changer">
                                             <li><a class="colorpick-btn" href="#" style="background-color:#5DB2FF;" rel="{{ asset('bundles/tecnocreacionescrmtemplate/template/html/assets/css/skins/blue.min.css') }}"></a></li>
@@ -305,19 +305,19 @@
                                             <li><a class="colorpick-btn" href="#" style="background-color:#001940;" rel="{{ asset('bundles/tecnocreacionescrmtemplate/template/html/assets/css/skins/deepblue.min.css') }}"></a></li>
                                         </ul>
                                     </li>
-                                    <!--/Theme Selector Area-->
-                                {% endblock theme_area %}
+{#                                    <!--/Theme Selector Area-->#}
                                 <li class="dropdown-footer">
                                     <a href="{{ path('fos_user_security_logout') }}">
                                         {{ "label.sign_out"|trans({},"labels") }}
                                     </a>
                                 </li>
                             </ul>
-                            <!--/Login Area Dropdown-->
+{#                            <!--/Login Area Dropdown-->#}
                         </li>
-                        <!-- /Account Area -->
+                        {% endblock top_menu_area %}
+                        {#<!-- /Account Area -->
                         <!--Note: notice that setting div must start right after account area list.
-                        no space must be between these elements-->
+                        no space must be between these elements-->#}
                     </ul>
                     {% block setting_container %}
                         <!-- Settings -->
