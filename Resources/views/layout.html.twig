@@ -53,101 +53,103 @@
             <!-- /Page Sidebar -->
             <!-- Page Content -->
             <div class="page-content">
-                {% block page_breadcrumb %}
-                    <!-- Page Breadcrumb -->
-                    <div class="page-breadcrumbs">
-                        {% block breadcrumb %}
-                            <ul class="breadcrumb">
-                                <li>
-                                    <i class="fa fa-home"></i>
-                                    <a href="#">Home</a>
-                                </li>
-                                <li>
-                                    <a href="#">More Pages</a>
-                                </li>
-                                <li class="active">Blank Page</li>
-                            </ul>
-                        {% endblock breadcrumb %}
+                {% block pageContent %}
+                    {% block page_breadcrumb %}
+                        <!-- Page Breadcrumb -->
+                        <div class="page-breadcrumbs">
+                            {% block breadcrumb %}
+                                <ul class="breadcrumb">
+                                    <li>
+                                        <i class="fa fa-home"></i>
+                                        <a href="#">Home</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">More Pages</a>
+                                    </li>
+                                    <li class="active">Blank Page</li>
+                                </ul>
+                            {% endblock breadcrumb %}
+                        </div>
+                    {% endblock page_breadcrumb %}
+                    <!-- /Page Breadcrumb -->
+                    <!-- Page Header -->
+                    <div class="page-header position-relative">
+                        <div class="header-title">
+                            <h1>
+                                {% block header_title %}
+                                    Blank Page
+                                    <small>
+                                        <i class="fa fa-angle-right"></i>
+                                        Hello!
+                                    </small>
+                                {% endblock header_title %}
+                            </h1>
+                        </div>
+                        <!--Header Buttons-->
+                        <div class="header-buttons">
+                            {% block headerButtons %}
+                                <a class="sidebar-toggler" href="#">
+                                    <i class="fa fa-arrows-h"></i>
+                                </a>
+                                <a class="refresh" id="refresh-toggler" href="">
+                                    <i class="glyphicon glyphicon-refresh"></i>
+                                </a>
+                                <a class="fullscreen" id="fullscreen-toggler" href="#">
+                                    <i class="glyphicon glyphicon-fullscreen"></i>
+                                </a>
+                            {% endblock headerButtons %}
+                        </div>
+                        <!--Header Buttons End-->
                     </div>
-                {% endblock page_breadcrumb %}
-                <!-- /Page Breadcrumb -->
-                <!-- Page Header -->
-                <div class="page-header position-relative">
-                    <div class="header-title">
-                        <h1>
-                            {% block header_title %}
-                                Blank Page
-                                <small>
-                                    <i class="fa fa-angle-right"></i>
-                                    Hello!
-                                </small>
-                            {% endblock header_title %}
-                        </h1>
-                    </div>
-                    <!--Header Buttons-->
-                    <div class="header-buttons">
-                        {% block headerButtons %}
-                            <a class="sidebar-toggler" href="#">
-                                <i class="fa fa-arrows-h"></i>
-                            </a>
-                            <a class="refresh" id="refresh-toggler" href="">
-                                <i class="glyphicon glyphicon-refresh"></i>
-                            </a>
-                            <a class="fullscreen" id="fullscreen-toggler" href="#">
-                                <i class="glyphicon glyphicon-fullscreen"></i>
-                            </a>
-                        {% endblock headerButtons %}
-                    </div>
-                    <!--Header Buttons End-->
-                </div>
-                <!-- /Page Header -->
-                <!-- Page Body -->
-                <div class="page-body">
-                    {% block pageAlerts %}
-                        {% for type, messages in flashes %}
-                            {% for message in messages %}
-                                {% if type == "alert-warning" %}
-                                    <div class="alert alert-warning fade in radius-bordered alert-shadowed">
-                                        <button class="close" data-dismiss="alert">
-                                            ×
-                                        </button>
-                                        <i class="fa-fw fa fa-warning"></i>
-                                        {{ message }}
-                                    </div>
-                                {% elseif type == "alert-success" %}
-                                    <div class="alert alert-success fade in radius-bordered alert-shadowed">
-                                        <button class="close" data-dismiss="alert">
-                                            ×
-                                        </button>
-                                        <i class="fa-fw fa fa-check"></i>
-                                        {{ message }}
-                                    </div>
-                                {% elseif type == "alert-info" %}
-                                    <div class="alert alert-info fade in radius-bordered alert-shadowed">
-                                        <button class="close" data-dismiss="alert">
-                                            ×
-                                        </button>
-                                        <i class="fa-fw fa fa-info"></i>
-                                        {{ message }}
-                                    </div>
-                                {% elseif type == "alert-error" %}
-                                    <div class="alert alert-danger fade in radius-bordered alert-shadowed">
-                                        <button class="close" data-dismiss="alert">
-                                            ×
-                                        </button>
-                                        <i class="fa-fw fa fa-times"></i>
-                                        {{ message }}
-                                    </div>
-                                {% endif %}
+                    <!-- /Page Header -->
+                    <!-- Page Body -->
+                    <div class="page-body">
+                        {% block pageAlerts %}
+                            {% for type, messages in flashes %}
+                                {% for message in messages %}
+                                    {% if type == "alert-warning" %}
+                                        <div class="alert alert-warning fade in radius-bordered alert-shadowed">
+                                            <button class="close" data-dismiss="alert">
+                                                ×
+                                            </button>
+                                            <i class="fa-fw fa fa-warning"></i>
+                                            {{ message }}
+                                        </div>
+                                    {% elseif type == "alert-success" %}
+                                        <div class="alert alert-success fade in radius-bordered alert-shadowed">
+                                            <button class="close" data-dismiss="alert">
+                                                ×
+                                            </button>
+                                            <i class="fa-fw fa fa-check"></i>
+                                            {{ message }}
+                                        </div>
+                                    {% elseif type == "alert-info" %}
+                                        <div class="alert alert-info fade in radius-bordered alert-shadowed">
+                                            <button class="close" data-dismiss="alert">
+                                                ×
+                                            </button>
+                                            <i class="fa-fw fa fa-info"></i>
+                                            {{ message }}
+                                        </div>
+                                    {% elseif type == "alert-error" %}
+                                        <div class="alert alert-danger fade in radius-bordered alert-shadowed">
+                                            <button class="close" data-dismiss="alert">
+                                                ×
+                                            </button>
+                                            <i class="fa-fw fa fa-times"></i>
+                                            {{ message }}
+                                        </div>
+                                    {% endif %}
+                                {% endfor %}
                             {% endfor %}
-                        {% endfor %}
-                    {% endblock pageAlerts %}
-                    <div class="animated fadeIn">
-                        {% block pageBody 'replace "pageBody" block' %}
+                        {% endblock pageAlerts %}
+                        <div class="animated fadeIn">
+                            {% block pageBody 'replace "pageBody" block' %}
+                        </div>
+    {#                    <!-- Your Content Goes Here -->#}
                     </div>
-{#                    <!-- Your Content Goes Here -->#}
-                </div>
 {#                <!-- /Page Body -->#}
+                {% endblock pageContent %}
             </div>
 {#            <!-- /Page Content -->#}
         </div>

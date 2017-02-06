@@ -11,6 +11,7 @@
     <meta name="description" content="blank page" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <base href="{{ app.request.getBaseURL() }}">
     <link rel="shortcut icon" href="{{ asset('favicon.ico') }}" type="image/x-icon">
 
     {#<!--Basic Styles-->#}
@@ -43,7 +44,7 @@
     </script>
     {% block base_javascripts %}
         {% javascripts 
-            'bundles/tecnocreacionescrmtemplate/template/html/assets/js/jquery-2.0.3.min.js'
+            'bundles/tecnocreacionescrmtemplate/template/html/assets/js/jquery-2.2.4.min.js'
 
             filter='uglifyjs2' 
             output="assets/template_base_pre.min.js"
@@ -141,7 +142,6 @@
             {% endfor %}
         });
     </script>
-    {% block javascript '' %}
     {% if app.debug == false %}
         {% block analytics '' %}
     {% endif%}
