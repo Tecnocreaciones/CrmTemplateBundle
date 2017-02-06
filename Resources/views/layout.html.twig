@@ -47,7 +47,8 @@
                 </div>
                 <!-- /Page Sidebar Header -->
                 <!-- Sidebar Menu -->
-                {{ knp_menu_render('app.menu.backend.sidebar', {'template': 'TecnocreacionesCrmTemplateBundle::menu.html.twig', 'currentClass': 'active'}) }}
+                {{ menu|raw }}
+{#                {{ knp_menu_render('app.menu.backend.sidebar', {'template': 'TecnocreacionesCrmTemplateBundle::menu.html.twig', 'currentClass': 'active'}) }}#}
                 <!-- /Sidebar Menu -->
             </div>
             <!-- /Page Sidebar -->

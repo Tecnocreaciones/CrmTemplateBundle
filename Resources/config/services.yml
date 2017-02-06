@@ -4,13 +4,15 @@ services:
 #    tecnocreaciones_crm_template.example:
 #        class: Tecnocreaciones\Crm\TemplateBundle\Example
 #        arguments: [@service_id, "plain_value", %parameter%]
+    template.global:
+        class: Tecnocreaciones\Crm\TemplateBundle\Services\TemplateGlobal
     kpn_menu.factory.original:
         class: %knp_menu.factory.class%
 #        calls:
 #            - [ addExtension, ["@knp_menu.factory_extension.routing"]  ]
     tecnocreaciones_vzla_government.menu_builder.backend:
         class: %crm.sidebard.menu.class%
-        arguments: [@kpn_menu.factory.original, @security.context, @translator]
+        arguments: [@kpn_menu.factory.original, @security.context, @translator,@router,@template.global]
         
     app.menu.backend.sidebar:
         class: Knp\Menu\MenuItem

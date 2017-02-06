@@ -13,8 +13,12 @@ namespace Tecnocreaciones\Crm\TemplateBundle\Menu;
 
 use Knp\Menu\FactoryInterface;
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\Translation\TranslatorInterface;
+use Symfony\Component\HttpFoundation\RequestStack;
+use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
+use Symfony\Component\Routing\RouterInterface;
 use Symfony\Component\Security\Core\SecurityContextInterface;
+use Symfony\Component\Translation\TranslatorInterface;
+use Tecnocreaciones\Crm\TemplateBundle\Services\TemplateGlobal;
 
 /**
  * Abstract menu builder.
@@ -50,6 +54,16 @@ abstract class MenuBuilder
      * @var Request
      */
     protected $request;
+    
+    /**
+     * @var TemplateGlobal
+     */
+    protected $templateGlobal;
+    
+    /**
+     * @var RouterInterface
+     */
+    protected $router;
 
     /**
      * Constructor.
@@ -58,11 +72,13 @@ abstract class MenuBuilder
      * @param SecurityContextInterface $securityContext
      * @param TranslatorInterface      $translator
      */
-    public function __construct(FactoryInterface $factory, SecurityContextInterface $securityContext, TranslatorInterface $translator)
+    public function __construct(FactoryInterface $factory, SecurityContextInterface $securityContext, TranslatorInterface $translator, RouterInterface $router,TemplateGlobal $templateGlobal)
     {
         $this->factory = $factory;
         $this->securityContext = $securityContext;
         $this->translator = $translator;
+        $this->router = $router;
+        $this->templateGlobal = $templateGlobal;
     }
 
     /**
@@ -70,7 +86,7 @@ abstract class MenuBuilder
      *
      * @param Request $request
      */
-    public function setRequest(\Symfony\Component\HttpFoundation\RequestStack $request = null)
+    public function setRequest(RequestStack $request = null)
     {
         $this->request = $request->getCurrentRequest();
     }
@@ -98,5 +114,10 @@ abstract class MenuBuilder
     protected function isGranted($attributes,$object = null)
     {
         return $this->securityContext->isGranted($attributes, $object);
+    }
+    
+    public function generateUrl($route, $parameters = array(), $referenceType = UrlGeneratorInterface::ABSOLUTE_PATH)
+    {
+        return $this->router->generate($route, $parameters, $referenceType);
     }
 }

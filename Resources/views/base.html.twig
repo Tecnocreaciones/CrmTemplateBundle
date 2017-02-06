@@ -31,6 +31,7 @@
         <link id="skin-link" href="" rel="stylesheet" type="text/css" />
         <link href="{{ asset('bundles/tecnocreacionescrmtemplate/template/html/assets/css/skins/darkblue.min.css') }}" rel="stylesheet" />
     #}
+    {% set menu = knp_menu_render('app.menu.backend.sidebar', {'template': 'TecnocreacionesCrmTemplateBundle::menu.html.twig', 'currentClass': 'active'}) %}
     <script>
         var basePath = '{{ asset('bundles/tecnocreacionescrmtemplate/template/html/') }}';
         appGlobal = {
@@ -39,7 +40,8 @@
             locale: "{{ app.request.locale }}",
             select2: {
                 language: 'select2/i18n/{{ app.request.locale }}'
-            }
+            },
+            extra: {{ global_template.getExtraValues()|json_encode()|raw }}
         };
     </script>
     {% block base_javascripts %}
