@@ -11,7 +11,7 @@
     <meta name="description" content="blank page" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <base href="{{ app.request.getBaseURL() }}">
+    <base href="{{ app.request.getBaseURL() == ""?"/":app.request.getBaseURL() }}">
     <link rel="shortcut icon" href="{{ asset('favicon.ico') }}" type="image/x-icon">
 
     {#<!--Basic Styles-->#}
@@ -49,7 +49,7 @@
             'bundles/tecnocreacionescrmtemplate/template/html/assets/js/jquery-2.2.4.min.js'
 
             filter='uglifyjs2' 
-            output="assets/template_base_pre.min.js"
+            output="assets/assets/template_base_pre.min.js"
         %}
             <script src="{{ asset_url }}"></script>
         {% endjavascripts %}
@@ -63,7 +63,7 @@
 
             filter='uglifycss' 
             filter='cssrewrite' 
-            output="assets/template_base.min.css"
+            output="assets/assets/template_base.min.css"
         %}
              <link rel="stylesheet" href="{{ asset_url }}" />
         {% endstylesheets %}
@@ -86,7 +86,7 @@
             'bundles/tecnocreacionescrmtemplate/template/html/assets/js/toastr/toastr.js' 
 
             filter='uglifyjs2' 
-            output="assets/template_base.min.js"
+            output="assets/assets/template_base.min.js"
         %}
             <script src="{{ asset_url }}"></script>
         {% endjavascripts %}
