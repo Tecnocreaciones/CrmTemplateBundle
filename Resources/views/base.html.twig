@@ -101,27 +101,16 @@
         var flashManager = {
             time: "10000",
             danger: function(message,title){
-                this.show(message,'error',title,"mp-status-error");
+                this.show(message,'error',title);
             },
             success: function(message,title){
-                this.show(message,'success',title,"mp-status-success");
+                this.show(message,'success',title);
             },
             warning: function(message,title){
-                this.show(message,'warning',title,"mp-status-warning");
+                this.show(message,'warning',title);
             },
             info: function(message,title){
-                this.show(message,'info',title,"mp-status-info");
-            },
-            inline: function(message,icon,title){
-                if(!icon){
-                    icon = "mp-notification";
-                }
-                toastr["info"](message,title,{
-                    "positionClass": "toast-bottom-left",
-                    "containerId": "toast-container-2",
-                    "iconClass": 'toast-info '+icon,
-                    "closeButton": false,
-                });
+                this.show(message,'info',title);
             },
             show: function(message,type,title,icon){
                 if(message != ""){
