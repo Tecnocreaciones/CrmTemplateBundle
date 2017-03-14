@@ -285,13 +285,35 @@ function scrollTo(el, offeset) {
 }
 
 /*Show Notification*/
-function Notify(message, position, timeout, theme, icon, closable) {
-    toastr.options.positionClass = 'toast-' + position;
-    toastr.options.extendedTimeOut = 0; //1000;
-    toastr.options.timeOut = timeout;
-    toastr.options.closeButton = closable;
-    toastr.options.iconClass = icon + ' toast-' + theme;
-    toastr['custom'](message);
+function Notify(message,title, position, timeout,type,closable) {
+//    toastr.options.positionClass = 'toast-' + position;
+//    toastr.options.extendedTimeOut = 0; //1000;
+//    toastr.options.timeOut = timeout;
+//    toastr.options.closeButton = closable;
+//    toastr.options.iconClass = icon + ' toast-' + theme;
+//    console.log("dale");
+//    toastr.options = {
+//        "closeButton": true,
+//        "debug": false,
+//        "newestOnTop": false,
+//        "progressBar": true,
+//        "positionClass": "toast-top-right",
+//        "preventDuplicates": false,
+//        "onclick": null,
+//        "showDuration": "300",
+//        "hideDuration": "1000",
+//        "timeOut": "5000",
+//        "extendedTimeOut": "1000",
+//        "showEasing": "swing",
+//        "hideEasing": "linear",
+//        "showMethod": "fadeIn",
+//        "hideMethod": "fadeOut"
+//      };
+    toastr[type](message,title,{
+        "positionClass": "toast-"+position,
+        "timeOut": timeout,
+        "closeButton": closable,
+    });
 }
 
 /*#region handle Settings*/

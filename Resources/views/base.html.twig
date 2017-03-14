@@ -59,10 +59,10 @@
     {% endblock base_javascripts %}
     {% block core_stylesheets %}
         {% stylesheets 
-            'bundles/tecnocreacionescrmtemplate/template/html/assets/css/beyond.min.css' 
-            'bundles/tecnocreacionescrmtemplate/template/html/assets/css/typicons.min.css' 
+            'bundles/tecnocreacionescrmtemplate/template/html/assets/css/beyond.css' 
             'bundles/tecnocreacionescrmtemplate/template/html/assets/css/animate.min.css' 
             'bundles/tecnocreacionescrmtemplate/template/html/assets/css/skins/darkblue.min.css' 
+            'bundles/tecnocreacionescrmtemplate/template/html/assets/js/toastr/toastr.min.css' 
 
             filter='uglifycss' 
             filter='cssrewrite' 
@@ -85,8 +85,8 @@
     {% block core_javascripts %}
         {% javascripts 
             'bundles/tecnocreacionescrmtemplate/template/html/assets/js/bootstrap.min.js' 
-            'bundles/tecnocreacionescrmtemplate/template/html/assets/js/beyond.min.js' 
             'bundles/tecnocreacionescrmtemplate/template/html/assets/js/toastr/toastr.js' 
+            'bundles/tecnocreacionescrmtemplate/template/html/assets/js/beyond.js' 
 
             filter='uglifyjs2' 
             output="assets/assets/template_base.min.js"
@@ -100,27 +100,32 @@
     <script type="text/javascript">
         var flashManager = {
             time: "10000",
-            danger: function(message,parameters){
-                this.show(message,'danger', 'fa-times');
+            danger: function(message,title){
+                this.show(message,'error',title,"mp-status-error");
             },
-            success: function(message,parameters){
-                this.show(message,'success', 'fa-check');
+            success: function(message,title){
+                this.show(message,'success',title,"mp-status-success");
             },
-            warning: function(message,parameters){
-                this.show(message,'warning', 'fa-warning');
+            warning: function(message,title){
+                this.show(message,'warning',title,"mp-status-warning");
             },
-            info: function(message,parameters){
-                this.show(message,'info', 'fa-info');
+            info: function(message,title){
+                this.show(message,'info',title,"mp-status-info");
             },
-            debug: function(message,parameters){
-                {% if app.debug %}
-                    console.log(message);
-                    this.show("Debug: "+message,'maroon', 'fa-home');
-                {% endif %}
+            inline: function(message,icon,title){
+                if(!icon){
+                    icon = "mp-notification";
+                }
+                toastr["info"](message,title,{
+                    "positionClass": "toast-bottom-left",
+                    "containerId": "toast-container-2",
+                    "iconClass": 'toast-info '+icon,
+                    "closeButton": false,
+                });
             },
-            show: function(message,type,icon){
+            show: function(message,type,title,icon){
                 if(message != ""){
-                    Notify(message, 'top-right', this.time, type, icon, true);
+                    Notify(message,title,'top-right', this.time, type, true,icon);
                 }
                 {% if app.debug %}
                     console.log("debug show: "+message+" type: "+type);
@@ -129,7 +134,6 @@
         };
         $(document).ready(function(){
             {% for type, messages in flashes %}
-{#                flashManager.debug("Tipo - {{ type }}");#}
                 {% for message in messages %}
                     
                     {% if type == "success" %}
@@ -140,8 +144,6 @@
                         flashManager.warning("{{ message }}");
                     {% elseif type == "info" %}
                         flashManager.info("{{ message }}");
-                    {% elseif type == "debug" %}
-                        flashManager.debug("{{ message }}");
                     {% endif%}
                 {% endfor %}
             {% endfor %}
