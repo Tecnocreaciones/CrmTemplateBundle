@@ -37,10 +37,14 @@
     {% endif %}
     <script>
         var basePath = '{{ asset('bundles/tecnocreacionescrmtemplate/template/html/') }}';
+        
         appGlobal = {
             basePath: basePath,
             baseUrl: "{{ app.request.getBaseURL() }}",
             locale: "{{ app.request.locale }}",
+            sound: {
+                a: "{{ asset('bundles/tecnocreacionescrmtemplate/template/html/assets/sound/alert.mp3') }}"
+            },
             select2: {
                 language: 'select2/i18n/{{ app.request.locale }}'
             },

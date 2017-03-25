@@ -245,7 +245,7 @@
                 PlaySound = 1;
                 if (isIE8orlower() == 0) {
                     var audioElement = document.createElement("audio");
-                    audioElement.setAttribute("src", basePath+"assets/sound/alert.mp3");
+                    audioElement.setAttribute("src", appGlobal.sound.a);
                     $.get();
                     audioElement.addEventListener("load", function () {
                         audioElement.play()
