@@ -32,9 +32,6 @@
         <link id="skin-link" href="" rel="stylesheet" type="text/css" />
         <link href="{{ asset('bundles/tecnocreacionescrmtemplate/template/html/assets/css/skins/darkblue.min.css') }}" rel="stylesheet" />
     #}
-    {% if is_granted("IS_AUTHENTICATED_FULLY") %}
-        {% set menu = knp_menu_render('main', {'template': 'TecnocreacionesCrmTemplateBundle::menu.html.twig', 'currentClass': 'active'}) %}
-    {% endif %}
     <script>
         var basePath = '{{ asset('bundles/tecnocreacionescrmtemplate/template/html/') }}';
         
