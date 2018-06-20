@@ -280,8 +280,11 @@ function maximize(widgetbox) {
 
 /* Scroll To */
 function scrollTo(el, offeset) {
-    var pos = (el && el.size() > 0) ? el.offset().top : 0;
-    jQuery('html,body').animate({ scrollTop: pos + (offeset ? offeset : 0) }, 'slow');
+    //Fix: se comento esto porque al arrastrar un widge daba se quedaba pegado el scroll
+//    log("scrollTo");
+//    console.trace();
+//    var pos = (el && el.size() > 0) ? el.offset().top : 0;
+//    jQuery('html,body').animate({ scrollTop: pos + (offeset ? offeset : 0) }, 'slow');
 }
 
 /*Show Notification*/
