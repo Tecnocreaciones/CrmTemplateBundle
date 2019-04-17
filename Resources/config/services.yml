@@ -12,7 +12,7 @@ services:
 #            - [ addExtension, ["@knp_menu.factory_extension.routing"]  ]
     tecnocreaciones_vzla_government.menu_builder.backend:
         class: %crm.sidebard.menu.class%
-        arguments: ['@kpn_menu.factory.original', '@security.context', '@translator','@router','@template.global']
+        arguments: ['@kpn_menu.factory.original', '@security.authorization_checker', '@translator','@router','@template.global']
         
     app.menu.backend.sidebar:
         class: Knp\Menu\MenuItem
