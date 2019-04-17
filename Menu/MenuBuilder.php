@@ -69,10 +69,10 @@ abstract class MenuBuilder
      * Constructor.
      *
      * @param FactoryInterface         $factory
-     * @param SecurityContextInterface $securityContext
+     * @param $securityContext
      * @param TranslatorInterface      $translator
      */
-    public function __construct(FactoryInterface $factory, SecurityContextInterface $securityContext, TranslatorInterface $translator, RouterInterface $router,TemplateGlobal $templateGlobal)
+    public function __construct(FactoryInterface $factory, $securityContext, TranslatorInterface $translator, RouterInterface $router,TemplateGlobal $templateGlobal)
     {
         $this->factory = $factory;
         $this->securityContext = $securityContext;
@@ -114,8 +114,8 @@ abstract class MenuBuilder
     protected function isGranted($attributes,$object = null)
     {
         return $this->securityContext->isGranted($attributes, $object);
-    }
-    
+        }
+
     public function generateUrl($route, $parameters = array(), $referenceType = UrlGeneratorInterface::ABSOLUTE_PATH)
     {
         return $this->router->generate($route, $parameters, $referenceType);
