@@ -4,8 +4,11 @@ services:
 #    tecnocreaciones_crm_template.example:
 #        class: Tecnocreaciones\Crm\TemplateBundle\Example
 #        arguments: [@service_id, "plain_value", %parameter%]
+    Tecnocreaciones\Crm\TemplateBundle\Services\TemplateGlobal:
+        public: false
     template.global:
-        class: Tecnocreaciones\Crm\TemplateBundle\Services\TemplateGlobal
+        alias: Tecnocreaciones\Crm\TemplateBundle\Services\TemplateGlobal
+        public: true
     kpn_menu.factory.original:
         class: %knp_menu.factory.class%
 #        calls:
