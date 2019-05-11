@@ -10,11 +10,11 @@ services:
         alias: Tecnocreaciones\Crm\TemplateBundle\Services\TemplateGlobal
         public: true
     kpn_menu.factory.original:
-        class: %knp_menu.factory.class%
+        class: "%knp_menu.factory.class%"
 #        calls:
 #            - [ addExtension, ["@knp_menu.factory_extension.routing"]  ]
     tecnocreaciones_vzla_government.menu_builder.backend:
-        class: %crm.sidebard.menu.class%
+        class: "%crm.sidebard.menu.class%"
         arguments: ['@kpn_menu.factory.original', '@security.authorization_checker', '@translator','@router','@template.global']
         
     app.menu.backend.sidebar:
