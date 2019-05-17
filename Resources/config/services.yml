@@ -6,6 +6,7 @@ services:
 #        arguments: [@service_id, "plain_value", %parameter%]
     Tecnocreaciones\Crm\TemplateBundle\Services\TemplateGlobal:
         public: false
+        class: Tecnocreaciones\Crm\TemplateBundle\Services\TemplateGlobal
     template.global:
         alias: Tecnocreaciones\Crm\TemplateBundle\Services\TemplateGlobal
         public: true
